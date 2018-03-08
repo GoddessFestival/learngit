@@ -85,6 +85,36 @@ git stash pop  恢复的同时把stash内容也删了（分支下的所有）
 https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000#0
  
 
+标签管理
+git tag  v1.0
+git tag v0.9 6224937(commit的id)
+git tag -a v0.1 -m "version 0.1 released"    -a指定标签名 -m说明文字
+git tag -s v0.2 -m "signed version 0.2 released"  -s用私钥签名一个标签gpg
+git log --pretty=oneline --abbrev-commit      commit提交的历史列表
+
+
+
+操作标签  推送标签到远程和删除远程标签
+命令git push origin <tagname>可以推送一个本地标签
+命令git push origin --tags可以推送全部未推送过的本地标签；
+命令git tag -d <tagname>可以删除一个本地标签；
+命令git push origin :refs/tags/<tagname>可以删除一个远程标签。
+
+
+提交日志
+git log
+ctrl+c 或者 ctrl+d   结束日志
+
+
+清空屏幕
+使用命令 reset 加回车键即可实现清空屏幕
+
+
+github使用
+在GitHub上，可以任意Fork开源仓库；
+自己拥有Fork后的仓库的读写权限；
+可以推送pull request给官方仓库来贡献代码
+
 
 
 
