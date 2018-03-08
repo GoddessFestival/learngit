@@ -44,11 +44,48 @@ git fetch               git fetch learngit
 git clone  git@github.com:GoddessFestival/learngit.git
 
 
-分支常见及合并
+分支创建及合并
 git branch dev
 git checkout dev        git checkout -b dev   一步完成
 
    Creating a new branch is quick.（在dev分支上提交）
+	
+	在dev分支上提交
+	git add ReadMe.txt
+	git commit -m "branch test"   暂存区
+分支的合并
+	git checkout master
+	git merge dev   把dev分支合并到当前分支（master）
+
+	注意到上面的Fast-forward信息，Git告诉我们，这次合并是“快进模式	”，也就是直接把master指向dev的当前提交，所以合并速度非常快。
+
+删除dev分支
+git branch -b dev  
+
+
+
+保存工作现场
+当前正在dev上进行的工作还没有提交，先把工作现场git stash一下，
+然后在master分支上创建issue-101分支
+git checkout -b issue-101     去修复bug，
+修复后（提交），切换到master分支上合并issue-101分支（并删除），（bug修复完接着继续工作）
+切换到dev分支  
+再git stash pop，回到工作现场。
+
+
+git merge –no-ff 可以保存你之前的分支历史。能够更好的查看 merge历史，以及branch 状态。
+git merge 则不会显示 feature，只保留单条分支记录。
+
+git stash list
+git stash apply 先恢复工作区    git stash apply stash@{0}恢复指定的stash
+git stash drop  删除stash （被存储在某个地方了） 
+git stash pop  恢复的同时把stash内容也删了（分支下的所有）
+
+详细请参考：
+https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137602359178794d966923e5c4134bc8bf98dfb03aea3000#0
+ 
+
+
 
 
 
