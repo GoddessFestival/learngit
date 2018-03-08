@@ -117,6 +117,29 @@ github使用
 
 
 
+搭建git服务器
+搭建Git服务器需要准备一台运行Linux的机器，强烈推荐用Ubuntu或Debian
+sudo权限的用户账号
+搭建Git服务器非常简单，通常10分钟即可完成；
+要方便管理公钥，用Gitosis；
+要像SVN那样变态地控制权限，用Gitolite。
+第一步，安装git：
+sudo apt-get install git
+第二步，创建一个git用户，用来运行git服务
+sudo adduser git
+第三步，创建证书登录
+收集所有需要登录的用户的公钥，就是他们自己的id_rsa.pub文件，把所有公钥导入到/home/git/.ssh/authorized_keys文件里，一行一个
+第四步，初始化Git仓库：
+先选定一个目录作为Git仓库，假定是/srv/sample.git，在/srv目录下输入命令：
+sudo git init --bare sample.git
+Git仓库通常都以.git结尾。然后，把owner改为git：
+sudo chown -R git:git sample.git
+第五步，禁用shell登录
+通过编辑/etc/passwd文件完成
+git:x:1001:1001:,,,:/home/git:/bin/bash
+改为git:x:1001:1001:,,,:/home/git:/usr/bin/git-shell
+第六步，克隆远程仓库：
+git clone git@server:/srv/sample.git
 
 
 
