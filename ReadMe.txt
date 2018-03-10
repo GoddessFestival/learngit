@@ -142,6 +142,11 @@ git:x:1001:1001:,,,:/home/git:/bin/bash
 git clone git@server:/srv/sample.git
 
 
+其他命令说明
+git commit -a -m ""  能提交修改过，但是没有添加到缓存区的文件（修改过的就能提交）
+git commit -m ""  只会提交添加到缓存区的文件（只提交添加的）
+
+
 
 
 
